@@ -7,7 +7,7 @@ import java.io.InputStreamReader;
 import java.util.List;
 
 /**
- * ShellUtils
+ * ShellUtils 我只想说这个代码你确定没问题，且不说冗余的代码，就说判断root方式的问题：直接执行su查看返回值就行了。你这个代码也是根据这个道理，但是根据我linux这么久的经验，此处应该确实存在问题；1：正确的获取返回值应该通过输入流读取echo $?的值，这个才是返回值，判断它是否为0；2：你这个代码在su之后有执行了其他代码，即process.waitFor();返回的值按linux中shell走是上一次命令的结果返回值，并不是su执行的返回值
  * <ul>
  * <strong>Check root</strong>
  * <li>{@link ShellUtils#checkRootPermission()}</li>
